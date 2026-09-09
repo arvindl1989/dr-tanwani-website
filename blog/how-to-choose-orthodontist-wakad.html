@@ -192,22 +192,53 @@
             box-shadow: 0 4px 20px rgba(0,0,0,0.03);
             transition: transform 0.2s ease, box-shadow 0.2s ease;
         }
+        @media (max-width: 576px) {
+            .check-card {
+                padding: 1.25rem 1rem;
+                margin: 1.25rem 0;
+            }
+        }
         .check-card:hover {
             transform: translateY(-2px);
             box-shadow: 0 8px 25px rgba(0,0,0,0.06);
         }
+        .check-title {
+            display: flex !important;
+            align-items: flex-start !important;
+            gap: 0.75rem !important;
+            font-size: 1.35rem;
+            line-height: 1.35;
+        }
+        @media (min-width: 768px) {
+            .check-title {
+                font-size: 1.5rem;
+            }
+        }
         .check-num-badge {
-            display: inline-flex;
-            align-items: center;
-            justify-content: center;
-            width: 38px;
-            height: 38px;
+            display: inline-flex !important;
+            align-items: center !important;
+            justify-content: center !important;
+            width: 36px !important;
+            height: 36px !important;
+            min-width: 36px !important;
+            max-width: 36px !important;
+            min-height: 36px !important;
+            max-height: 36px !important;
+            flex: 0 0 36px !important;
+            flex-shrink: 0 !important;
+            aspect-ratio: 1 / 1 !important;
             background: #0e8fa7;
             color: #ffffff;
             font-weight: 700;
-            border-radius: 50%;
-            margin-right: 0.75rem;
-            font-size: 1.1rem;
+            border-radius: 50% !important;
+            font-size: 1.05rem;
+            line-height: 1;
+            margin-top: 0.12rem;
+            box-sizing: border-box;
+        }
+        .check-title-text {
+            flex: 1;
+            min-width: 0;
         }
         .checklist-snippet-box {
             background: #f8fafc;
@@ -369,8 +400,9 @@
 
                 <!-- 1. Check Qualifications -->
                 <div class="check-card">
-                    <h2 class="h3 d-flex align-items-center mb-3">
-                        <span class="check-num-badge">1</span> Check whether you're seeing an orthodontist at all
+                    <h2 class="h3 check-title mb-3">
+                        <span class="check-num-badge">1</span>
+                        <span class="check-title-text">Check whether you're seeing an orthodontist at all</span>
                     </h2>
                     <p>
                         This is the single most important item on the list, and most patients never think to ask.
@@ -388,8 +420,9 @@
 
                 <!-- 2. Doctor Continuity -->
                 <div class="check-card">
-                    <h2 class="h3 d-flex align-items-center mb-3">
-                        <span class="check-num-badge">2</span> Ask who will actually treat you
+                    <h2 class="h3 check-title mb-3">
+                        <span class="check-num-badge">2</span>
+                        <span class="check-title-text">Ask who will actually treat you</span>
                     </h2>
                     <p>
                         At larger clinics and corporate dental chains, the doctor at your initial consultation is frequently not the doctor who carries out your monthly adjustments, and the person you see may change over the course of treatment.
@@ -404,8 +437,9 @@
 
                 <!-- 3. Records Before Plan -->
                 <div class="check-card">
-                    <h2 class="h3 d-flex align-items-center mb-3">
-                        <span class="check-num-badge">3</span> Refuse a treatment plan made without records
+                    <h2 class="h3 check-title mb-3">
+                        <span class="check-num-badge">3</span>
+                        <span class="check-title-text">Refuse a treatment plan made without records</span>
                     </h2>
                     <p>
                         A proper orthodontic assessment requires an <strong>OPG</strong> (full-jaw panoramic X-ray), often a <strong>lateral cephalogram</strong> to assess skull and jaw relationships, high-resolution intraoral and facial photographs, and dental impressions or a 3D digital scan.
@@ -420,8 +454,9 @@
 
                 <!-- 4. Alternatives Explained -->
                 <div class="check-card">
-                    <h2 class="h3 d-flex align-items-center mb-3">
-                        <span class="check-num-badge">4</span> Ask for the alternatives, not just the recommendation
+                    <h2 class="h3 check-title mb-3">
+                        <span class="check-num-badge">4</span>
+                        <span class="check-title-text">Ask for the alternatives, not just the recommendation</span>
                     </h2>
                     <p>
                         Most cases can be treated in more than one way. <a href="../braces-wakad.html" class="text-primary text-decoration-none fw-semibold">Metal braces</a>, ceramic braces, and <a href="../invisalign-wakad.html" class="text-primary text-decoration-none fw-semibold">clear aligners</a>, planned with or without extractions — each route carries different trade-offs in time, cost, comfort, and predictability.
@@ -433,8 +468,9 @@
 
                 <!-- 5. Honest Extraction Advice -->
                 <div class="check-card">
-                    <h2 class="h3 d-flex align-items-center mb-3">
-                        <span class="check-num-badge">5</span> Get the extraction question answered honestly
+                    <h2 class="h3 check-title mb-3">
+                        <span class="check-num-badge">5</span>
+                        <span class="check-title-text">Get the extraction question answered honestly</span>
                     </h2>
                     <p>
                         Some cases genuinely need premolar teeth removed to relieve severe crowding and correct jaw protrusion. Some cases genuinely don't. Which category applies to you depends on crowding severity, bone arch width, jaw size, and your soft-tissue facial profile — never on clinic sales policy.
@@ -449,8 +485,9 @@
 
                 <!-- 6. Post-Treatment Retainers -->
                 <div class="check-card">
-                    <h2 class="h3 d-flex align-items-center mb-3">
-                        <span class="check-num-badge">6</span> Find out what happens after the braces come off
+                    <h2 class="h3 check-title mb-3">
+                        <span class="check-num-badge">6</span>
+                        <span class="check-title-text">Find out what happens after the braces come off</span>
                     </h2>
                     <p>
                         Teeth drift throughout life. Every successful orthodontic treatment ends with retainers, worn nightly and indefinitely to preserve your results.
@@ -465,8 +502,9 @@
 
                 <!-- 7. Two-Year Practicalities -->
                 <div class="check-card">
-                    <h2 class="h3 d-flex align-items-center mb-3">
-                        <span class="check-num-badge">7</span> Think about the next two years, not the next appointment
+                    <h2 class="h3 check-title mb-3">
+                        <span class="check-num-badge">7</span>
+                        <span class="check-title-text">Think about the next two years, not the next appointment</span>
                     </h2>
                     <p>
                         The practical details decide whether you actually finish treatment on schedule:
@@ -483,8 +521,9 @@
 
                 <!-- 8. Evaluating Reviews -->
                 <div class="check-card">
-                    <h2 class="h3 d-flex align-items-center mb-3">
-                        <span class="check-num-badge">8</span> Read the reviews properly
+                    <h2 class="h3 check-title mb-3">
+                        <span class="check-num-badge">8</span>
+                        <span class="check-title-text">Read the reviews properly</span>
                     </h2>
                     <p>
                         Overall star ratings tell you very little. Read the actual review text instead, paying attention to:
@@ -501,8 +540,9 @@
 
                 <!-- 9. Solo Practice vs Chain -->
                 <div class="check-card">
-                    <h2 class="h3 d-flex align-items-center mb-3">
-                        <span class="check-num-badge">9</span> Be honest about which kind of clinic suits you
+                    <h2 class="h3 check-title mb-3">
+                        <span class="check-num-badge">9</span>
+                        <span class="check-title-text">Be honest about which kind of clinic suits you</span>
                     </h2>
                     <p>
                         A dedicated single-doctor specialist practice and a multi-branch corporate dental chain are fundamentally different models, and neither is universally superior for every patient.
