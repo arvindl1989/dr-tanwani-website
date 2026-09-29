@@ -24,6 +24,13 @@
 
 
     <!-- Google Fonts & Bootstrap -->
+    <!-- Resource hints: start the DNS/TLS handshake for third-party
+         origins before the parser reaches the stylesheets they serve. -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link rel="preconnect" href="https://cdn.jsdelivr.net" crossorigin>
+    <link rel="preconnect" href="https://cdnjs.cloudflare.com" crossorigin>
+    <link rel="dns-prefetch" href="https://www.googletagmanager.com">
     <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500;600;700;800&family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css">
@@ -123,7 +130,7 @@
                             <i class="fas fa-star text-dark me-1"></i> 5.0 Google Rating (20+ Reviews)
                         </span>
                     </div>
-                    <h1 class="display-4 fw-bold mb-3">Best Orthodontist in Wakad, Pune</h1>
+                    <h1 class="display-5 fw-bold mb-3">Best Orthodontist in Wakad, Pune</h1>
                     <p class="lead opacity-90 mb-4">
                         Transform your smile with specialized teeth straightening, metal & ceramic braces, and certified Invisalign treatments by <strong>Dr. Hemlata Tanwani (MDS Orthodontics)</strong>. Serving Wakad, Hinjawadi, Pimple Saudagar, and Baner.
                     </p>
@@ -147,7 +154,7 @@
     </header>
 
     <!-- Why an MDS Specialist Matters -->
-    <section class="py-5 bg-light">
+    <section class="section-padding bg-light">
         <div class="container py-3">
             <div class="text-center max-w-700 mx-auto mb-5">
                 <span class="text-primary fw-bold text-uppercase small">Specialist Distinction</span>
@@ -199,7 +206,7 @@
     </section>
 
     <!-- Treatments Offered -->
-    <section class="py-5 bg-white">
+    <section class="section-padding bg-white">
         <div class="container py-3">
             <div class="text-center mb-5">
                 <span class="text-primary fw-bold text-uppercase small">Comprehensive Solutions</span>
@@ -236,7 +243,7 @@
     </section>
 
     <!-- FAQs with Schema.org Accordion -->
-    <section class="py-5 bg-light">
+    <section class="section-padding bg-light">
         <div class="container py-3">
             <div class="text-center mb-5">
                 <span class="text-primary fw-bold text-uppercase small">Got Questions?</span>

@@ -557,3 +557,67 @@ header .badge {
     color: var(--primary-accent);
 }
 
+
+/* ============================================================
+   Brand theming of Bootstrap utilities
+   ------------------------------------------------------------
+   Bootstrap ships --bs-primary as #0d6efd, which is not a brand
+   colour, so text-primary / bg-primary / border-primary rendered
+   in stock Bootstrap blue. Map them to the darker teal: it meets
+   WCAG AA both as text on white and behind white text (4.95:1).
+   The brighter --primary-accent is only 2.99:1 on white, so it is
+   reserved for dark surfaces where it passes at 5.16:1.
+   ============================================================ */
+:root {
+    --bs-primary: #0b7d7d;
+    --bs-primary-rgb: 11, 125, 125;
+    --bs-link-color: #0b7d7d;
+    --bs-link-color-rgb: 11, 125, 125;
+    --bs-link-hover-color: #0b2545;
+    --bs-link-hover-color-rgb: 11, 37, 69;
+
+    /* Radius scale: stock lg/xl are 8px/16px, a 2x jump that made
+       rounded-3 and rounded-4 read as different systems. */
+    --bs-border-radius-lg: 0.875rem;
+    --bs-border-radius-xl: 1rem;
+}
+
+/* Bootstrap compiles button variants with literal colour values, so
+   the outline button does not inherit --bs-primary and needs its own. */
+.btn-outline-primary {
+    --bs-btn-color: #0b7d7d;
+    --bs-btn-border-color: #0b7d7d;
+    --bs-btn-hover-color: #ffffff;
+    --bs-btn-hover-bg: #0b7d7d;
+    --bs-btn-hover-border-color: #0b7d7d;
+    --bs-btn-focus-shadow-rgb: 11, 125, 125;
+    --bs-btn-active-color: #ffffff;
+    --bs-btn-active-bg: #0b7d7d;
+    --bs-btn-active-border-color: #0b7d7d;
+    --bs-btn-disabled-color: #0b7d7d;
+    --bs-btn-disabled-border-color: #0b7d7d;
+}
+
+/* On dark surfaces the darker teal falls to 3.1:1, so switch to the
+   brighter accent, which reaches 5.16:1 there. */
+footer .text-primary,
+.bg-dark .text-primary,
+.bg-navy .text-primary,
+.footer .text-primary {
+    color: var(--primary-accent) !important;
+}
+
+/* Consistent vertical rhythm for major sections. */
+.section-padding { padding: 60px 0; }
+@media (max-width: 768px) {
+    .section-padding { padding: 40px 0; }
+}
+
+/* AOS failsafe: aos.css sets [data-aos]{opacity:0}, so if the AOS
+   stylesheet loads but the script does not, content stays invisible.
+   .aos-unavailable is set by the inline guard on the homepage. */
+.aos-unavailable [data-aos] {
+    opacity: 1 !important;
+    transform: none !important;
+    transition: none !important;
+}
