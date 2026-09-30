@@ -1021,6 +1021,22 @@
         // so if the CDN is blocked or slow we reveal them instead of leaving
         // the page blank -- and an unguarded AOS.init() would throw here and
         // stop every script below it from running.
+        // Any [data-aos] element still fully transparent once the page has
+        // settled is stuck, so reveal it rather than leave a blank page.
+        function revealStuckAos() {
+            var els = document.querySelectorAll('[data-aos]');
+            for (var i = 0; i < els.length; i++) {
+                if (window.getComputedStyle(els[i]).opacity === '0') {
+                    els[i].classList.add('aos-animate');
+                }
+            }
+        }
+
+        function whenLoaded(fn) {
+            if (document.readyState === 'complete') { fn(); }
+            else { window.addEventListener('load', fn); }
+        }
+
         if (typeof AOS !== 'undefined') {
             AOS.init({
                 once: true,
@@ -1028,9 +1044,38 @@
                 duration: 800,
                 disable: 'mobile' // Disable advanced AOS on mobile to prevent layout shifting
             });
+
+            // Lazy-loaded images occupy no height until they decode, so AOS
+            // measures offsets against a much shorter document and elements
+            // below them never trigger. Recalculate whenever that changes.
+            var refresh = function () { if (AOS && AOS.refresh) { AOS.refresh(); } };
+            var pending;
+            var scheduleRefresh = function () {
+                window.clearTimeout(pending);
+                pending = window.setTimeout(function () {
+                    refresh();
+                    revealStuckAos();
+                }, 200);
+            };
+
+            var lazyImgs = document.querySelectorAll('img[loading="lazy"]');
+            for (var i = 0; i < lazyImgs.length; i++) {
+                if (!lazyImgs[i].complete) {
+                    lazyImgs[i].addEventListener('load', scheduleRefresh);
+                    lazyImgs[i].addEventListener('error', scheduleRefresh);
+                }
+            }
+
+            whenLoaded(function () {
+                refresh();
+                window.setTimeout(revealStuckAos, 600);
+            });
         } else {
             document.documentElement.classList.add('aos-unavailable');
         }
+
+        // Final guarantee, independent of why AOS may have failed.
+        whenLoaded(function () { window.setTimeout(revealStuckAos, 2500); });
 
         // Navbar Scroll Effect
         const navbar = document.getElementById('mainNavbar');
@@ -1077,14 +1122,17 @@
     <!-- Conversion Event Tracking -->
     <script src="js/analytics.js"></script>
     <script>
-        // Last-resort failsafe: if nothing has revealed the animated
-        // elements shortly after load, show them unconditionally.
+        // Last-resort failsafe, outside the main script block: if anything
+        // animated is still invisible, drop the AOS opacity rule entirely.
         window.setTimeout(function () {
-            var el = document.querySelector('[data-aos]');
-            if (el && window.getComputedStyle(el).opacity === '0') {
-                document.documentElement.classList.add('aos-unavailable');
+            var els = document.querySelectorAll('[data-aos]');
+            for (var i = 0; i < els.length; i++) {
+                if (window.getComputedStyle(els[i]).opacity === '0') {
+                    document.documentElement.classList.add('aos-unavailable');
+                    return;
+                }
             }
-        }, 1500);
+        }, 3000);
     </script>
 </body>
 
