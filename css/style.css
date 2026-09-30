@@ -406,18 +406,20 @@ header .badge {
 }
 
 /* Responsive Overrides */
+/* Narrow-desktop squeeze. Eased after the redundant Home item was
+   removed from the navbar: the row fits without shrinking the logo. */
 @media (min-width: 992px) and (max-width: 1260px) {
     .nav-link {
-        font-size: 0.82rem !important;
-        padding: 6px 6px !important;
+        font-size: 0.85rem !important;
+        padding: 6px 8px !important;
     }
     .navbar-cta-group .btn {
-        font-size: 0.76rem !important;
-        padding: 6px 10px !important;
-        height: 34px !important;
+        font-size: 0.8rem !important;
+        padding: 7px 12px !important;
+        height: 36px !important;
     }
     .nav-logo {
-        height: 46px !important;
+        height: 50px !important;
     }
 }
 
