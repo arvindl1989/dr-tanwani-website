@@ -621,3 +621,29 @@ footer .text-primary,
     transform: none !important;
     transition: none !important;
 }
+
+/* ============================================================
+   Shared page hero
+   ------------------------------------------------------------
+   Inner pages previously each declared their own inline gradient
+   (blue, slate, green, teal), so consecutive pages read as
+   different sites. One brand gradient is used everywhere instead.
+   ============================================================ */
+.page-hero {
+    background: linear-gradient(135deg, var(--primary-color) 0%, #1e3a5f 100%);
+    color: #ffffff;
+}
+
+/* Credential / value badges sitting on the hero. */
+.page-hero .hero-badge,
+.page-hero .badge {
+    font-weight: 700;
+}
+
+/* Compact hero for pages that are informational rather than
+   promotional (about, contact, policy) — same brand surface,
+   less vertical weight. */
+.page-hero--compact {
+    padding-top: 2.5rem;
+    padding-bottom: 2.5rem;
+}
